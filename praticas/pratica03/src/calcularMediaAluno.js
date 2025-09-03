@@ -21,12 +21,10 @@ function calcularMediaAluno(a1, a2, a3) {
     return a1 * 0.4 + a2 * 0.6;
   }
 
-
   if (a3 < 0) {
     throw Error("Nota a3 não pode ser negativa");
   }
 
-  
   if (a1 + a3 > a1 + a2) {
     return a1 * 0.4 + a3 * 0.6;
   } else if(a2 + a3 > a1 + a2){
