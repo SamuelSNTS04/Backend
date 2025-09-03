@@ -1,4 +1,4 @@
-# Construção de Backend
+# Backend
 
 Repositório criado para as aulas teóricas e atividades práticas da disciplina.
 
