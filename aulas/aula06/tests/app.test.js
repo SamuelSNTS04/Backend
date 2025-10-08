@@ -37,7 +37,7 @@ describe("TESTES DA ROTA /TAREFAS", () => {
   });
 
   test("GET /id - retorna 404", async () => {
-    const response = await request.get(`${url}/0`);
+    const response = await request.get(`${url}/1`);
     expect(response.status).toBe(404);
     expect(response.headers["content-type"]).toMatch(/json/);
     expect(response.body["msg"]).toBe("Tarefa não encontrada!");
