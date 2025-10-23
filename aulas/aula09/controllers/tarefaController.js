@@ -19,7 +19,7 @@ async function criar(req, res) {
     return res.status(201).json(novaTarefa);
   } catch (err) {
     if (err.errors) {
-      return res.status(422).json({ msg: err.errors['nome'] });
+      return res.status(422).json({ msg: err.errors["nome"].message });
     }
   }
 }
@@ -45,13 +45,19 @@ function exibir(req, res) {
 }
 
 async function atualizar(req, res) {
-  const { id } = req.params;
-  const tarefaAtualizada = await Tarefa.findOneAndUpdate(
-    { _id: id },
-    { ...req.body },
-    { new: true }
-  );
-  return res.json(tarefaAtualizada);
+  try {
+    const { id } = req.params;
+    const tarefaAtualizada = await Tarefa.findOneAndUpdate(
+      { _id: id },
+      { ...req.body },
+      { new: true, runValidators: true }
+    );
+    return res.json(tarefaAtualizada);
+  } catch (err) {
+    if (err.errors) {
+      return res.status(422).json({ msg: err.errors["nome"].message });
+    }
+  }
 }
 
 async function remover(req, res) {
