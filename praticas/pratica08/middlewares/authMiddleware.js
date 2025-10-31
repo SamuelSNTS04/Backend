@@ -3,6 +3,10 @@ const jwt = require("jsonwebtoken");
 function verificarToken(req, res, next) {
   const { authorization } = req.headers;
 
+  if (!authorization) {
+    res.status(401).json({ msg: "Não autorizado" });
+  }
+
   try {
     const token = authorization.split(" ")[1];
 
@@ -10,7 +14,7 @@ function verificarToken(req, res, next) {
     req.payload = { usuario: payload.usuario };
     return next();
   } catch (err) {
-    res.status(401).json({ msg: "Token invalido " });
+    res.status(401).json({ msg: "Token inválido" });
   }
 }
 
