@@ -19,7 +19,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ArrayOfProdutos"
+                $ref: '#/components/schemas/ArrayOfProdutos'
     post:
       tags:
         - produtos
@@ -29,14 +29,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Produto"
+              $ref: '#/components/schemas/Produto'
       responses:
         201:
           description: Produto criado com sucesso
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Produto"
+                $ref: '#/components/schemas/Produto'
         422:
           description: Nome e preço são obrigatórios
   /produtos/{produtoId}:
@@ -55,7 +55,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Produto"
+                $ref: '#/components/schemas/Produto'
         404:
           description: Produto não encontrado
     put:
@@ -73,14 +73,14 @@ paths:
         content:
           application/json:
               schema:
-                $ref: "#/components/schemas/Produto"
+                $ref: '#/components/schemas/Produto'
       responses:
         200:
           description: Um JSON com os dados do produto atualizado
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Produto"
+                $ref: '#/components/schemas/Produto'
         404:
           description: Produto não encontrado
         422:
